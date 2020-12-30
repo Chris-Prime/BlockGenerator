@@ -12,6 +12,7 @@ use BlockHorizons\BlockGenerator\noise\PerlinF;
 use BlockHorizons\BlockGenerator\noise\SimplexF;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\item\ItemIds;
 use pocketmine\level\generator\GeneratorManager;
 use pocketmine\math\Vector2;
 use pocketmine\plugin\PluginBase;
@@ -133,6 +134,7 @@ class Loader extends PluginBase implements Listener
 
 	public function onPlayerMove(PlayerMoveEvent $event) {
 		$player = $event->getPlayer();
+		if(!$player->isOp() || $player->getInventory()->getItemInHand()->getId() !== ItemIds::STICK) return;
 		$chunk = $player->getLevel()->getChunk($cx = $player->x >> 4, $cz = $player->z >> 4);
 		$biome = CustomBiome::getBiome($chunk->getBiomeId($rx = $player->x % 16, $rz = $player->z % 16));
 		$player->sendTip("Chunk($cx, $cz)"."\n"."Biome @ {$rx}, {$rz}: ".$biome->getName()." ({$biome->getId()})"."\n"."Temperature: ".$biome->getTemperature()."\n"."Rainfall: ".$biome->getRainfall()." Elevation: ".$biome->getBaseHeight()." variation: ".$biome->getHeightVariation());

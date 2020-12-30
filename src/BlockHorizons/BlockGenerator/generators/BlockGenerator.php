@@ -9,6 +9,7 @@ use BlockHorizons\BlockGenerator\math\MathHelper;
 use BlockHorizons\BlockGenerator\noise\NoiseGeneratorOctaves;
 use BlockHorizons\BlockGenerator\populator\BedrockPopulator;
 use BlockHorizons\BlockGenerator\populator\CavePopulator;
+use BlockHorizons\BlockGenerator\populator\DungeonPopulator;
 use BlockHorizons\BlockGenerator\populator\GroundCoverPopulator;
 use BlockHorizons\BlockGenerator\populator\RavinesPopulator;
 use pocketmine\block\Block;
@@ -128,13 +129,16 @@ class BlockGenerator extends CustomGenerator
         ]);
         $this->populators[] = $ores;
 
-        $caves = new CavePopulator($this->random);
+        $caves = new CavePopulator();
         $this->populators[] = $caves;
         $this->cavePop = $caves;
 
 //        $ravines = new RavinesPopulator();
 //        $this->populators[] = $ravines;
 //        $this->ravinePop = $ravines;
+
+        $dungeons = new DungeonPopulator($this->random);
+        $this->populators[] = $dungeons;
 
         CustomBiome::init();
     }

@@ -14,8 +14,8 @@ class TaigaBiome extends GrassyBiome
         parent::__construct();
 
         $trees = new TreePopulator(\pocketmine\block\Wood::SPRUCE);
-        $trees->setBaseAmount(30);
-        $trees->setRandomAmount(50);
+        $trees->setBaseAmount(5);
+        $trees->setRandomAmount(3);
         $this->addPopulator($trees);
 
         $this->setBaseHeight(0.2);
