@@ -133,12 +133,12 @@ class BlockGenerator extends CustomGenerator
         $this->populators[] = $caves;
         $this->cavePop = $caves;
 
-//        $ravines = new RavinesPopulator();
-//        $this->populators[] = $ravines;
-//        $this->ravinePop = $ravines;
+        $ravines = new RavinesPopulator();
+        $this->populators[] = $ravines;
+        $this->ravinePop = $ravines;
 
-        $dungeons = new DungeonPopulator($this->random);
-        $this->populators[] = $dungeons;
+//        $dungeons = new DungeonPopulator($this->random);
+//        $this->populators[] = $dungeons;
 
         CustomBiome::init();
     }

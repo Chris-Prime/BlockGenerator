@@ -29,13 +29,13 @@ class RavinesPopulator extends Populator {
     protected $worldLong1;
     protected $worldLong2;
 
-    protected $ravineRarity = 2;
+    protected $ravineRarity = 1;
     protected $ravineMinAltitude = 20;
-    protected $ravineMaxAltitude = 70;
+    protected $ravineMaxAltitude = 67;
     protected $ravineMinLength = 84;
     protected $ravineMaxLength = 111;
 
-    protected $ravineDepth = 20;
+    protected $ravineDepth = 3;
 
     protected $worldHeightCap = 1 << 8;
 
